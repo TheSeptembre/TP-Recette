@@ -14,7 +14,7 @@ class Commentaire extends Modele {
  	// code à implémenter
  	// requête d'insert pour ajouter un commentaire
  	// utiliser pour cela executerRequete avec la requête SQL et $idRecette, $auteur, $contenu, $note et $date en paramètre (attention les paramètres sont sous forme de tableau)
-		executerRequete('INSERT INTO commentaire(idRecette, auteur,contenu,note,dateCreation) VALUES (?;?,?;?;?);', $idRecette, $auteur, $contenu, $note);
+		executerRequete('INSERT INTO commentaire(idRecette, auteur,contenu,note,dateCreation) VALUES (?;?,?;?;?);', array($idRecette, $auteur, $contenu, $note));
 
 	}
 
