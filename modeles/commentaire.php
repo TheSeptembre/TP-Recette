@@ -6,6 +6,7 @@ class Commentaire extends Modele {
  	// code à implémenter
  	// retourne la liste des commentaires
  	// utiliser pour cela executerRequete avec la requête SQL
+		executerRequete('SELECT * FROM commentaire WHERE idRecette = ?', $idRecette);
 	}
 
  	// Ajoute un commentaire dans la base
@@ -13,6 +14,8 @@ class Commentaire extends Modele {
  	// code à implémenter
  	// requête d'insert pour ajouter un commentaire
  	// utiliser pour cela executerRequete avec la requête SQL et $idRecette, $auteur, $contenu, $note et $date en paramètre (attention les paramètres sont sous forme de tableau)
+		executerRequete('INSERT INTO commentaire(idRecette, auteur,contenu,note,dateCreation) VALUES (?;?,?;?;?);', $idRecette, $auteur, $contenu, $note);
+
 	}
 
 } 
