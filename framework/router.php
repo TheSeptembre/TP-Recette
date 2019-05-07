@@ -32,7 +32,7 @@ class Router {
 			$controller->setRequete($requete);
 			return $controller;
 		} 
-		else
+		else {
 			throw new Exception("Fichier '$fichierController' introuvable");
 		}
 		// Détermine l'action à exécuter en fonction de la requête reçue
