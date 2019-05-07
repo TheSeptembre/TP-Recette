@@ -1,3 +1,4 @@
+<?php
 require_once 'framework/modele.php';
 class Recette extends Modele {
  	// Renvoie la liste des recettes du blog

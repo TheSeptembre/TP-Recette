@@ -1,3 +1,4 @@
+<?php 
 class Configuration {
 	private static $parametres;
 // Renvoie la valeur d'un paramètre de configuration

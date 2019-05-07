@@ -1,3 +1,4 @@
+<?php
 require_once 'framework/modele.php';
 class Commentaire extends Modele { 
  	// Renvoie la liste des commentaires associés à une recette

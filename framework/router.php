@@ -1,3 +1,4 @@
+<?php
 require_once 'requete.php';
 require_once 'vue.php';
 class Router {

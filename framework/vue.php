@@ -1,3 +1,4 @@
+<?php
 class Vue {
  	// Nom du fichier associé à la vue
 	private $fichier;

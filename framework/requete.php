@@ -1,3 +1,4 @@
+<?php
 class Requete {
  	// paramètres de la requête
 	private $parametres;

@@ -1,3 +1,4 @@
+<?php 
 require_once 'modeles/recette.php';
 require_once 'framework/controller.php';
 require_once 'framework/vue.php';
