@@ -1,10 +1,16 @@
 <?php
+
 class Vue {
+
  	// Nom du fichier associé à la vue
 	private $fichier;
  	// Titre de la vue (défini dans le fichier vue)
 	private $titre;
-	public function __construct($action, $controller = "") {
+
+	public function __construct($titre, $action, $controller = "") {
+
+        $this->titre = $titre;
+
  	// Détermination du nom du fichier vue à partir de l'action et du constructeur
 		$fichier = "vues/";
 		if ($controller != "") {
@@ -12,6 +18,7 @@ class Vue {
 		}
 		$this->fichier = $fichier . $action . ".php";
 	}
+
 	// Génère et affiche la vue
 	public function generer($donnees) {
  		// Génération de la partie spécifique de la vue
@@ -22,6 +29,7 @@ class Vue {
  			// Renvoi de la vue au navigateur
 		echo $vue;
 	}
+
     // Génère un fichier vue et renvoie le résultat produit
 	private function genererFichier($fichier, $donnees) {
 		if (file_exists($fichier)) {

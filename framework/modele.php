@@ -1,11 +1,14 @@
-<?php 
+<?php
+
 require_once 'configuration.php';
 
 abstract class Modele {
+
 	/** Objet PDO d'accès à la BD Statique donc partagé par toutes les instances des classes dérivées */
 	private static $bdd;
+
 	// Exécute une requête SQL éventuellement paramétrée
-	protected function executerRequete($sql, $params = null) {
+	protected function executeRequete($sql, $params = null) {
 		if ($params == null) {
 			$resultat = $this->getBdd()->query($sql); // exécution directe
 		} else {

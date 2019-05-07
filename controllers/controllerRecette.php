@@ -1,30 +1,51 @@
-<?php 
+<?php
+
 require_once 'modeles/recette.php';
 require_once 'modeles/commentaire.php';
 require_once 'framework/controller.php';
 require_once 'framework/vue.php';
-class controllerRecette extends Controller {
-	private $recette; 
-	private $commentaire;
-	public function __construct() {
-		$this->recette = new Recette();
-		$this->commentaire = new Commentaire();
-	}
-	public function index() {
-	}
-	// Affiche les détails sur une recette
-	public function recette() {
-	// code à implémenter
-	// récupérer la recette
-	// récupérer la liste des ingrédients
-	// récupérer la liste des commentaires
-	// générer la vue
-	}
+require_once 'framework/requete.php';
 
-	// Ajoute un commentaire à une recette
-	public function commenter() {
-	// récupérer les paramètres (idRecette, auteur, contenu, note)
-	// Sauvegarde du commentaire
-	// Actualisation de l'affichage de la recette
-	}
-} 
+class ControllerRecette extends Controller {
+
+    private $recette;
+    private $commentaire;
+    private $title = "Recette";
+
+    public function __construct() {
+        $this->recette = new Recette();
+        $this->commentaire = new Commentaire();
+    }
+
+    public function index() {
+
+        $recettes = $this->recette->getRecettes();
+        $this->genererVue($this->title, array('recettes' => $recettes));
+    }
+
+    // Affiche les détails sur une recette
+    public function recette() {
+
+        $recetteId = $this->requete->getParameter('id');
+
+        $selectedRecette = $this->recette->getRecetteById(array($recetteId));
+        $assocIngredients = $this->recette->getIngredients(array($recetteId));
+        $assocCommentaires = $this->commentaire->getCommentaires(array($recetteId));
+
+        $this->genererVue($this->title, array('recette' => $selectedRecette, 'ingredients' => $assocIngredients, 'commentaires' => $assocCommentaires));
+    }
+
+    // Ajoute un commentaire à une recette
+    public function commentaire() {
+        $recetteId = $this->requete->getParameter('id');
+        $author = $this->requete->getParameter('auteur');
+        $content = $this->requete->getParameter('contenu');
+        $note = $this->requete->getParameter('note');
+
+        $this->commentaire->addCommentaire($recetteId, $author, $content, $note);
+
+        $this->SetAction("recette");
+
+        $this->recette();
+    }
+}

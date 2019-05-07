@@ -15,7 +15,7 @@
 			<?= $contenu ?>
 		</div> <!-- #contenu -->
 		<footer id="piedBlog">
-			Blog réalisé avec le modèle MVC.
+			Blog réalisé avec amour.
 		</footer>
 	</div> <!-- #global -->
 </body>
