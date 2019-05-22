@@ -26,7 +26,7 @@ class ControllerRecette extends Controller {
     // Affiche les détails sur une recette
     public function recette() {
 
-        $recetteId = $this->requete->getParameter('id');
+        $recetteId = $this->requete->getParametre('id');
 
         $selectedRecette = $this->recette->getRecetteById(array($recetteId));
         $assocIngredients = $this->recette->getIngredients(array($recetteId));
@@ -37,10 +37,10 @@ class ControllerRecette extends Controller {
 
     // Ajoute un commentaire à une recette
     public function commentaire() {
-        $recetteId = $this->requete->getParameter('id');
-        $author = $this->requete->getParameter('auteur');
-        $content = $this->requete->getParameter('contenu');
-        $note = $this->requete->getParameter('note');
+        $recetteId = $this->requete->getParametre('id');
+        $author = $this->requete->getParametre('auteur');
+        $content = $this->requete->getParametre('contenu');
+        $note = $this->requete->getParametre('note');
 
         $this->commentaire->addCommentaire($recetteId, $author, $content, $note);
 
